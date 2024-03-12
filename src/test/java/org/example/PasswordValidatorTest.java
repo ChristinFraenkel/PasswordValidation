@@ -67,6 +67,47 @@ class PasswordValidatorTest {
         Assertions.assertFalse(result);
     }
 
+    // Test for lowercase and uppercase
+    @Test
+    void containsUppercaseAndLowercase_shouldReturnTrue_WhenContainsUppercaseAndLowercase(){
+        //GIVEN
+        String inputPassword = "Password";
+        //WHEN
+        boolean result = PasswordValidator.containsUppercaseAndLowercase(inputPassword);
+        //THEN
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void containsUppercaseAndLowercase_shouldReturnFalse_WhenContainsOnlyUppercase(){
+        //GIVEN
+        String inputPassword = "PASSWORD";
+        //WHEN
+        boolean result = PasswordValidator.containsUppercaseAndLowercase(inputPassword);
+        //THEN
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void containsUppercaseAndLowercase_shouldReturnFalse_WhenContainsOnlyLowercase(){
+        //GIVEN
+        String inputPassword = "password";
+        //WHEN
+        boolean result = PasswordValidator.containsUppercaseAndLowercase(inputPassword);
+        //THEN
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void containsUppercaseAndLowercase_shouldReturnFalse_WhenEmpty(){
+        //GIVEN
+        String inputPassword = "";
+        //WHEN
+        boolean result = PasswordValidator.containsUppercaseAndLowercase(inputPassword);
+        //THEN
+        Assertions.assertFalse(result);
+    }
+
 }
 
 
