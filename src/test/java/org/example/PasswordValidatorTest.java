@@ -36,12 +36,37 @@ class PasswordValidatorTest {
         Assertions.assertFalse(isValid);
     }
 
+    // Test for digits
+    @Test
+    void containsDigits_shouldReturnTrue_WhenGivenDigits(){
+        //GIVEN
+        String inputPassword = "password123";
+        //WHEN
+        boolean result = PasswordValidator.containsDigits(inputPassword);
+        //THEN
+        Assertions.assertTrue(result);
+    }
 
+    @Test
+    void containsDigits_shouldReturnFalse_WhenGivenNoDigits(){
+        //GIVEN
+        String inputPassword = "password";
+        //WHEN
+        boolean result = PasswordValidator.containsDigits(inputPassword);
+        //THEN
+        Assertions.assertFalse(result);
+    }
 
+    @Test
+    void containsDigits_shouldReturnFalse_WhenEmpty(){
+        //GIVEN
+        String inputPassword = "";
+        //WHEN
+        boolean result = PasswordValidator.containsDigits(inputPassword);
+        //THEN
+        Assertions.assertFalse(result);
+    }
 
 }
 
 
-//GIVEN
-//WHEN
-//THEN
