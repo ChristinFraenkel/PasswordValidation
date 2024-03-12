@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Assertions;
 
 class PasswordValidatorTest {
 
+    // Test for 8 Characters
     @Test
-    void shouldReturnTrue_WhenGiven8Characters(){
+    void isPasswordLengthValid_shouldReturnTrue_WhenGiven8Characters(){
         //GIVEN
         String inputPassword = "abcdefgh";
         //WHEN
@@ -16,7 +17,7 @@ class PasswordValidatorTest {
     }
 
     @Test
-    void shouldReturnFalse_WhenGivenLessThan8Characters(){
+    void isPasswordLengthValid_shouldReturnFalse_WhenGivenLessThan8Characters(){
         //GIVEN
         String inputPassword = "abcdefg";
         //WHEN
@@ -26,7 +27,7 @@ class PasswordValidatorTest {
     }
 
     @Test
-    void shouldReturnFalse_WhenGiven0Characters(){
+    void isPasswordLengthValid_shouldReturnFalse_WhenGiven0Characters(){
         //GIVEN
         String inputPassword = "";
         //WHEN
@@ -34,6 +35,9 @@ class PasswordValidatorTest {
         //THEN
         Assertions.assertFalse(isValid);
     }
+
+
+
 
 }
 
