@@ -47,16 +47,24 @@ public class PasswordValidator {
         return false;
     }
 
+    //special characters
+    public static boolean containsSpecialCharacters(String password) {
+        if(!password.matches("[a-zA-Z0-9]*")){
+            return true;
+        }
+        return false;
+    }
+
 
 
 
     public static void main(String[] args) {
-        String password = "password";
+        String password = "Password@123";
 
-        if (isPasswordLengthValid(password) && containsDigits(password) && containsUppercaseAndLowercase(password) && !isCommonPassword(password)) {
+        if (isPasswordLengthValid(password) && containsDigits(password) && containsUppercaseAndLowercase(password) && !isCommonPassword(password) && containsSpecialCharacters(password)) {
             System.out.println("Password is valid.");
         } else {
-            System.out.println("Password is not valid. It should be at least 8 characters long, contains digits and include both uppercase and lowercase letters. Also, it should not be a common password.");
+            System.out.println("Password is not valid. It should be at least 8 characters long, contains digits and include both uppercase and lowercase letters. Also, it should not be a common password and it should contain special characters.");
         }
     }
 

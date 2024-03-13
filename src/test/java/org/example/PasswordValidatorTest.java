@@ -139,6 +139,37 @@ class PasswordValidatorTest {
         Assertions.assertFalse(result);
     }
 
+    //Test for special chars
+    @Test
+    void containSpecialCharacters_shouldReturnTrue_WhenSpecialCharactersUsed(){
+        //GIVEN
+        String inputPassword = "password@123";
+        //WHEN
+        boolean result = PasswordValidator.containsSpecialCharacters(inputPassword);
+        //THEN
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void containSpecialCharacters_shouldReturnFalse_WhenNoSpecialCharactersUsed(){
+        //GIVEN
+        String inputPassword = "password123";
+        //WHEN
+        boolean result = PasswordValidator.containsSpecialCharacters(inputPassword);
+        //THEN
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void containSpecialCharacters_shouldReturnFalse_WhenEmptyPasswordUsed(){
+        //GIVEN
+        String inputPassword = "";
+        //WHEN
+        boolean result = PasswordValidator.containsSpecialCharacters(inputPassword);
+        //THEN
+        Assertions.assertFalse(result);
+    }
+
 }
 
 
