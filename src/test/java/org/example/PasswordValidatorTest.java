@@ -108,6 +108,37 @@ class PasswordValidatorTest {
         Assertions.assertFalse(result);
     }
 
+    //Test for commonly used password
+    @Test
+    void isCommonPassword_shouldReturnTrue_WhenCommonlyPasswordIsUsed(){
+        //GIVEN
+        String inputPassword = "password";
+        //WHEN
+        boolean result = PasswordValidator.isCommonPassword(inputPassword);
+        //THEN
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void isCommonPassword_shouldReturnFalse_WhenNonCommonlyPasswordIsUsed(){
+        //GIVEN
+        String inputPassword = "AJRcjaiFJSsf";
+        //WHEN
+        boolean result = PasswordValidator.isCommonPassword(inputPassword);
+        //THEN
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void isCommonPassword_shouldReturnFalse_WhenEmptyPasswordIsUsed(){
+        //GIVEN
+        String inputPassword = "";
+        //WHEN
+        boolean result = PasswordValidator.isCommonPassword(inputPassword);
+        //THEN
+        Assertions.assertFalse(result);
+    }
+
 }
 
 

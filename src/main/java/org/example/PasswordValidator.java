@@ -36,15 +36,27 @@ public class PasswordValidator {
         return false;
     }
 
+    //Commonly used password
+    public static boolean isCommonPassword(String password) {
+        String[] commonPasswords = {"1234", "password", "test1234", "Password1", "Aa345678"};
+        for (String common : commonPasswords) {
+            if (password.equals(common)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
 
     public static void main(String[] args) {
-        String password = "testpassworD2";
+        String password = "password";
 
-        if (isPasswordLengthValid(password) && containsDigits(password) && containsUppercaseAndLowercase(password)) {
+        if (isPasswordLengthValid(password) && containsDigits(password) && containsUppercaseAndLowercase(password) && !isCommonPassword(password)) {
             System.out.println("Password is valid.");
         } else {
-            System.out.println("Password is not valid. It should be at least 8 characters long, contains digits and include both uppercase and lowercase letters.");
+            System.out.println("Password is not valid. It should be at least 8 characters long, contains digits and include both uppercase and lowercase letters. Also, it should not be a common password.");
         }
     }
 
